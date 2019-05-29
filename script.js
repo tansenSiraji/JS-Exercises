@@ -90,3 +90,65 @@ var library = [
     }
 
     console.log(getReadingstatus(1))
+
+
+    // Task 5:
+   
+    var cart = [ 
+        {
+            name: 'Shoes',
+            price: 560,
+            quantity: 4
+        },
+        {
+            name: 'Regular Tees',
+            price: 455.50,
+            quantity: 6
+        },
+        {
+            name: 'Socks',
+            price: 65.99,
+            quantity: 2
+        }];
+
+        //5a - Add a new item
+        function addItem(newItem){
+            cart.push(newItem);
+        }
+
+        addItem({
+            name: 'Pants',
+            price: '1000',
+            quantity: '5'
+        })
+
+        console.log(cart);
+
+        
+        //5b - sort by a given property
+        function sortCart(prop){
+            cart.sort(function(a, b){
+         if ([prop] > b[prop]){
+             return 1;
+
+         }
+         if ([prop] < b[prop]){
+            return -1;
+            };
+            return 0;
+        }
+    }
+        sortCart('name')
+        console.log(cart);
+
+      
+        //5c - find item by name
+        function findByName(name){
+
+        }
+
+
+        //5d - get total cost
+        function getTotalCost(){
+
+        }
