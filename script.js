@@ -117,36 +117,49 @@ var library = [
         }
 
         addItem({
-            name: 'Pants',
+            name: 'Shoes',
             price: 1000,
             quantity: 5
         })
+
 
         console.log(cart);
 
 
         //5b - sort by a given property
+
         function sortCart(prop){
-        cart.sort(function(a, b) {
-            return a[prop] - b[prop];
-        });
+            cart.sort(function(a,b){
+                if ( a[prop] < b[prop] ){
+                return -1;
+                   }
+               if ( a[prop] > b[prop]){
+               return 1;
+                }
+               return 0;
+}) 
+}
+sortCart('name')
+console.log(cart)
+
+  
+
+   //5c
+   findByName = function(name){
+    var newArr =  cart.filter(function(item) {
+        return item.name == name;
+    });
     
+    console.log(newArr)
     }
-        sortCart(name)
-        console.log(cart);
     
-      
-        //5c - find item by name
-        function findByName(name) {
-            var x = cart.getElementsByName('name')[0].value;
-          }
-        
-        console.log(cart);
-
-
-        //5d - get total cost
-        cart.forEach(function(value, index, array){
-            sum += value.price * value.quantity;
-        });
-
-        console.log(sum);
+    findByName("Shoes")
+   //5d
+   function getTotalCost(){
+       var totalCost = 0;
+       for (var i in cart){
+           totalCost += cart[i].price * cart[i].quantity;
+       }
+       return totalCost;
+    }
+    console.log('Total Price ='+ getTotalCost());
